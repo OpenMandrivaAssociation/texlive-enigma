@@ -6,7 +6,7 @@
 # catalog-version 0.1
 Name:		texlive-enigma
 Version:	0.1
-Release:	2
+Release:	3
 Summary:	Encrypt documents with a three rotor Enigma
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/generic/enigma
