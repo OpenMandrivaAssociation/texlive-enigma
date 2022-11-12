@@ -1,18 +1,12 @@
-# revision 29802
-# category Package
-# catalog-ctan /macros/luatex/generic/enigma
-# catalog-date 2013-04-09 15:55:17 +0200
-# catalog-license bsd
-# catalog-version 0.1
 Name:		texlive-enigma
-Version:	0.1
-Release:	10
+Version:	29802
+Release:	1
 Summary:	Encrypt documents with a three rotor Enigma
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/generic/enigma
 License:	BSD
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -23,12 +17,12 @@ The package provides historical encryption (Enigma cipher) for
 LuaTeX-based formats.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -47,7 +41,7 @@ LuaTeX-based formats.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
