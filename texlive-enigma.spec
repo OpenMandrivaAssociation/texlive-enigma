@@ -1,6 +1,6 @@
 Name:		texlive-enigma
 Version:	29802
-Release:	1
+Release:	2
 Summary:	Encrypt documents with a three rotor Enigma
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/generic/enigma
