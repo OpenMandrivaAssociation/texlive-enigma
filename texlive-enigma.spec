@@ -3,7 +3,7 @@ Version:	29802
 Release:	2
 Summary:	Encrypt documents with a three rotor Enigma
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/luatex/generic/enigma
+URL:		https://www.ctan.org/tex-archive/macros/luatex/generic/enigma
 License:	BSD
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.doc.r%{version}.tar.xz
