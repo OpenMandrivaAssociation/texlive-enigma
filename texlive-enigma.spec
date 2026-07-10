@@ -1,50 +1,23 @@
-Name:		texlive-enigma
-Version:	29802
-Release:	2
+%global tl_name enigma
+%global tl_revision 29802
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.1
+Release:	%{tl_revision}.1
 Summary:	Encrypt documents with a three rotor Enigma
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/luatex/generic/enigma
-License:	BSD
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.doc.r%{version}.tar.xz
+License:	bsd
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/enigma.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides historical encryption (Enigma cipher) for
-LuaTeX-based formats.
+The package provides historical encryption (Enigma cipher) for LuaTeX-
+based formats.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/scripts/context/lua/third/enigma/mtx-t-enigma.lua/mtx-t-enigma.lua
-%{_texmfdistdir}/tex/context/third/enigma/t-enigma.mkv/t-enigma.mkvi
-%{_texmfdistdir}/tex/generic/enigma/enigma.lua
-%{_texmfdistdir}/tex/latex/enigma/enigma.sty
-%{_texmfdistdir}/tex/plain/enigma/enigma.tex
-%doc %{_texmfdistdir}/doc/context/third/enigma/enigma/COPYING
-%doc %{_texmfdistdir}/doc/context/third/enigma/enigma/README
-%doc %{_texmfdistdir}/doc/context/third/enigma/enigma/enigma-doc.pdf
-%doc %{_texmfdistdir}/doc/context/third/enigma/enigma/enigma_manual.tex
-%doc %{_texmfdistdir}/doc/context/third/enigma/enigma/examples/enigma-example-context.tex
-%doc %{_texmfdistdir}/doc/context/third/enigma/enigma/examples/enigma-example-latex.tex
-%doc %{_texmfdistdir}/doc/context/third/enigma/enigma/examples/enigma-example-plain.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar scripts tex doc %{buildroot}%{_texmfdistdir}
